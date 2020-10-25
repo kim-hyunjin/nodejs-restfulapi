@@ -1,11 +1,14 @@
 module.exports = function(app, Book) {
   app.get('/api/books', function(req, res) {
+    console.log("GET /api/books");
     Book.find(function(err, books) {
       if(err) return res.status(500).send({error: 'database failure'});
+      res.json(books);
     });
   });
 
   app.get('/api/books/:book_id', function(req, res) {
+    console.log("GET /api/books/:book_id");
     Book.findOne({_id: req.params.book_id}, function(err, book) {
       if(err) return res.status(500).json({error: err});
       if(!book) return res.status(404).json({error: 'book not found'});
@@ -14,6 +17,7 @@ module.exports = function(app, Book) {
   });
 
   app.get('/api/books/author/:author', function(req, res) {
+    console.log("GET /api/books/author/:author");
     Book.find({author: req.params.author}, {_id:0, title: 1, published_date: 1}, function(err, books) {
       if(err) return res.status(500).json({error: err});
       if(books.length === 0) return res.status(404).json({error: 'book not found'});
@@ -22,6 +26,8 @@ module.exports = function(app, Book) {
   });
 
   app.post('/api/books', function(req, res) {
+    console.log("POST /api/books");
+
     var book = new Book();
     book.title = req.body.name;
     book.author = req.body.author;
@@ -38,6 +44,8 @@ module.exports = function(app, Book) {
   });
 
   app.put('/api/books/:book_id', function(req, res) {
+    console.log("PUT /api/books/:book_id");
+
     // Book.findById(req.params.book_id, function(err, book) {
     //   if(err) return res.status(500).json({error: err});
     //   if(!book) return res.status(404).json({error: 'book not found'});
@@ -61,6 +69,8 @@ module.exports = function(app, Book) {
   });
 
   app.delete('/api/books/:book_id', function(req, res) {
+    console.log("DELETE /api/books/:book_id");
+
     Book.remove({_id: req.params.book_id}, function(err, output) {
       if(err) return res.status(500).json({error: 'database failure'});
       if(!output.n) return res.status(404).json({error: 'book not found'});

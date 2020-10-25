@@ -8,7 +8,7 @@ var Book = require('./models/book');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 3000;
 
 var router = require('./routes')(app, Book);
 

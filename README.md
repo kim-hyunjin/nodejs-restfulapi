@@ -1,2 +1,2 @@
 # nodejs-restfulapi
-study Node.js &amp; RESTful API with using Express, MongoDB
+study RESTful API server using Express, MongoDB

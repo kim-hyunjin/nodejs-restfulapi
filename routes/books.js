@@ -29,7 +29,7 @@ module.exports = function(app, Book) {
     console.log("POST /api/books");
 
     var book = new Book();
-    book.title = req.body.name;
+    book.title = req.body.title;
     book.author = req.body.author;
     book.published_date = new Date(req.body.published_date);
 

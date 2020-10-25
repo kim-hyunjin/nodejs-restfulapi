@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js tutorial</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <h1>Node.js tutorial</h1>
+  <table>
+    <thead>
+      <th>ROUTE</th>
+      <th>METHOD</th>
+      <th>DESCRIPTION</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>/api/books</td>
+        <td>GET</td>
+        <td>모든 book 데이터 조회</td>
+      </tr>
+      <tr>
+        <td>/api/books/:book_id</td>
+        <td>GET</td>
+        <td>_id 값으로 데이터 조회</td>
+      </tr>
+      <tr>
+        <td>/api/books/author/:author</td>
+        <td>GET</td>
+        <td>author 값으로 데이터 조회</td>
+      </tr>
+      <tr>
+        <td>/api/books</td>
+        <td>POST</td>
+        <td>book 데이터 생성</td>
+      </tr>
+      <tr>
+        <td>/api/books/:book_id</td>
+        <td>PUT</td>
+        <td>book 데이터 수정</td>
+      </tr>
+      <tr>
+        <td>/api/books/:book_id</td>
+        <td>DELETE</td>
+        <td>book 데이터 제거</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

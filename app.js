@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8000;
 
-var router = require('./routes')(app);
+var router = require('./routes')(app, Book);
 
 var server = app.listen(port, function() {
   console.log("Express server has started on port : " + port);

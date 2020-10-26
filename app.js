@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 3000;
 
 var apiRouter = require('./routes/books')(app, Book);
-var htmlRouter = require('./routes/main')(app);
+var htmlRouter = require('./routes/main')(app, Book);
 
 app.set('views', __dirname+'/views');
 app.set('view engine', 'ejs');

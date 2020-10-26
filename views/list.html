@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books List</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <div id="book-list"> 
+    <h1>책 목록</h1>
+    <ul id="books" class="books">
+      <li v-for="book in books">
+        {{book.title}} - {{book.author}}
+      </li>
+    </ul>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $.getJSON('http://localhost:3000/api/books', function(data) {
+        console.log(data);
+        new Vue({
+          el: '#books',
+          data: {
+            books: data
+          }
+        });
+     });
+    });
+
+    
+  </script>
+
+</body>
+</html>
